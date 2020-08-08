@@ -1,9 +1,5 @@
-// Create a request variable and assign a new XMLHttpRequest
-//object to it.
 var request = new XMLHttpRequest()
 
-// Open a new connection, using the GET request on the URL
-// endpoint
 var url = null;
 
 function show_reps() {
@@ -14,7 +10,6 @@ function show_reps() {
     request.open('GET', url, true)
 
     request.onload = function () {
-        // Begin accessing JSON data here
         var data = JSON.parse(this.response);
 
         var statusHTML = '';
@@ -27,12 +22,8 @@ function show_reps() {
             statusHTML += '<td>' + status.stargazers_count + '</td>';
             statusHTML += '</tr>';
         });
-
         $('tbody').html(statusHTML);
     }
-
-// Send request
     request.send();
-
 }
 
